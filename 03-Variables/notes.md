@@ -3,13 +3,13 @@
 ### Write Your First PHP Code: Display a Message in Your Web Browser
 
 **Web server**
-- Searv files make a website
+- Serve files make a website
 - Web address -> localhost
-- URL: localhost/hello.php (via web browser)
+- URL: `localhost/hello.php` (via web browser)
   
 **PHP**
 - A programing language
-- Save the file (hollo.php) on the web server
+- Save the file (`hello.php`) on the web server
 - Request -> Execute -> send to the browser
 
 ---
@@ -48,7 +48,7 @@ $Message = "Hello";
 ```php
 $message = "Hello";
 $count = 3;
-$error_message = "Hello";
+$error_message = "Incorrect password";
 $first_name = "Dave";
 
 ```
@@ -104,7 +104,7 @@ $is_admin = false;
 
 **Null**
 ```php
-// No vaule assign to it yet.
+// No value assign to it yet.
 $user_id = null;
 
 ```
@@ -123,7 +123,7 @@ $string = "null";
 ### Perform Operations on Variables: Operators
 
 **Logical Operators**
-- and, or, xor, !, &&, ||
+- `and, or, xor, !, &&, ||`
 
 ---
 
@@ -144,10 +144,3 @@ $name = "Dave";
 echo "Hello $name"; 
 echo "Hello {$name}";
 ```
----
-
-### Quiz 1: PHP concepts, variables and operators
-
----
-
-### Coding Exercise 1: Variables and Operators
