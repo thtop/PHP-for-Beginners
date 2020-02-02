@@ -144,3 +144,20 @@ $name = "Dave";
 echo "Hello $name"; 
 echo "Hello {$name}";
 ```
+
+**Single qouted** vs **Double qouted**
+
+```php
+// 1. Escaped characters
+$start2 = "3 o'clock";
+$start1 = '3 o\'clock';
+
+// 2. Interpolation support
+$name = "Lexa";
+
+echo "Hello $name";  // Hello Lexa
+echo "Hello {$name}"; // Hello Lexa
+
+// output all to string
+echo 'My name is $name'; // My name is $name
+```
