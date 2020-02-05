@@ -11,7 +11,7 @@
 
    ❌ `(p)This is a paragraph.(/p)`
    ✅ `<p>This is a paragraph.</p>`
-  ❌ `{p}This is a paragraph.{/p}`
+   ❌ `{p}This is a paragraph.{/p}`
 
 ---
 
@@ -20,14 +20,14 @@
    ❌ `<a herf=http://www.example.com/>Example</a>`
    ❌ `<a herf= "http://www.example.com/">Example</a>`
    ✅ `<a herf="http://www.example.com/">Example</a>`
-   
+
 ---
 
 4. How do you change the title of the page dispayed in the browser's title bar at the top of the screen?
-   
+
    ❌ User the `<title>` element inside the `<body>` section of the HTML
    ✅ Use the `<title>` element inside the `head` section of the HTML
-   ❌  Use the `<title>` element anywhere in the HTML document
+   ❌ Use the `<title>` element anywhere in the HTML document
 
 ---
 
@@ -48,7 +48,7 @@
 ---
 
 7. What is displayed with the following code?
-   `<a href="https://www.wikipedia.org/">Wikipedia</a> `
+   `<a href="https://www.wikipedia.org/">Wikipedia</a>`
 
    ✅ A link with the text "https://www.wikipedia.org/"
    ❌ The Wikipedia web site
@@ -64,17 +64,29 @@
 ---
 
 9. What is displayed in the browser with this code?
-  
-  ```html
-  <ol>
-    <li>First</li>
-    <li>Second</li>
-    <li>Third</li>
-  </ol>
-  ```
-   ❌ 
-   ✅ 
-   ❌ 
 
----
+   ```html
+   <ol>
+     <li>First</li>
+     <li>Second</li>
+     <li>Third</li>
+   </ol>
+   ```
 
+   ❌
+
+   ```html
+   - First - Second - Third
+   ```
+
+   ✅
+
+   ```html
+   1. First 2. Second 3. Third
+   ```
+
+   ❌
+
+   ```html
+   First Second Third
+   ```
