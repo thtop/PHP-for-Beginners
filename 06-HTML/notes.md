@@ -18,6 +18,8 @@ Attributes
 `<a href="https://google.com/">Google</a>`
 `<img src="phpto.jpg>`
 
+---
+
 ## Use Head and Body Elements to Structure An HTML Document
 
 Structure of an HTML document
@@ -38,9 +40,13 @@ Structure of an HTML document
 
 [https://devdocs.io/](https://devdocs.io/)
 
+---
+
 ## Structure the Content of your Page Using Heading and Paragraph Elements
 
 h1 -> h6
+
+---
 
 ## Give Text Emphasis or Importance Using the em and Strong Elements
 
@@ -57,19 +63,27 @@ This is <strong>very</strong> dengerous
 - `<i>`
 - `<b>`
 
+---
+
 ## Display Ordered and Unordered Lists of Items
 
 - `<ul>`
 - `<ol>`, `<ol start="3"`
 - list-style-type
 
+---
+
 ## Insert Images Into an HTML Document
 
 - `<img src="img/nirotharam.PNG" alt="นิโรธารม"/>`
 
+---
+
 ## Add a Link from One Page to Another Using a Hyperlink
 
 - <a href="https://google.com" title="Google">Google</a>
+
+---
 
 ## Add Semantic Structure to The Body of an HTML Document
 
@@ -80,3 +94,10 @@ This is <strong>very</strong> dengerous
 - `<section>`
 - `<aside>`
 - `<footer>`
+
+---
+
+## Not Semantic
+
+- `<div>` - new line
+- `<span>` - inline
