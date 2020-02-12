@@ -1,4 +1,4 @@
-# Quiz 11: Deleting and deleting data in the database
+# Quiz 12: Sessions and cookies
 
 1. What does the `session_start` function do?
    ✅ starts a new session or resumes an existing session
