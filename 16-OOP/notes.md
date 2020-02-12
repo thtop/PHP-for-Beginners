@@ -287,7 +287,7 @@ class Item
 }
 ```
 
-Object:
+Use:
 
 ```php
 <?php
@@ -312,14 +312,218 @@ Item::showCount();
 
 ## Constants: Using Define and const to Create Constant Values
 
+- `define('MAXIMUM', 100)` = global
+- databaes, config
+- [define](https://www.php.net/manual/en/function.define.php)
+- [Class Constants](https://www.php.net/manual/en/language.oop5.constants.php#language.oop5.constants)
+- [PSR-1: Basic Coding Standard](https://www.php-fig.org/psr/psr-1/)
+
+Class: 
+
+```php
+<?php
+
+class Item
+{
+
+  public CONST MAX_LENGTH = 24;
+
+  public $name;
+  public $description;
+
+  public function __construct($name, $description) {
+    $this->name = $name;
+    $this->description = $description;
+
+  }
+
+}
+```
+
+Use:
+
+```php
+<?php
+
+require '12-const.php';
+
+echo Item::MAX_LENGTH; // = static
+```
+
+  
 ---
 
 ## Inheritance: Usng the Extends Keyword to reuse Code and reduce Repetition
+
+Parent class:
+
+```php
+<?php
+
+class Item
+{
+  public $name;
+
+  public function getLIstingDescription()
+  {
+    return $this->name;
+  }
+}
+```
+
+Child class:
+
+```php
+<?php
+
+class Book extends Item
+{
+  // public $name;
+  public $author;
+
+  // public function getLIstingDescription()
+  // {
+  //   return $this->name;
+  // }
+}
+```
+
+Use:
+
+```php
+<?php
+
+require '14-inheritance.php';
+require '15-Book.php';
+
+$item = new Item();
+$item->name = 'TV';
+echo $item->getListingDescription();
+
+echo "<br />";
+
+$book = new Book();
+$book->name = 'Hamlet';
+$book->author = 'Shakespeare';
+echo $book->getListingDescription();
+
+```
 
 ---
 
 ## Overriding Methods and Using the Parent Keyword to Call the Parent Class Code
 
+Parent class:
+
+```php
+<?php
+
+class Item
+{
+  public $name;
+
+  public function getListingDescription() {
+    return "Item: $this->name";
+  }
+}
+```
+
+Child class:
+
+```php
+<?php
+
+class Book extends Item
+{
+  public $author;
+
+  // public function getListingDescription() {
+  //   return "$this->name by $this->author";
+  // }
+
+  public function getListingDescription() {
+    return parent::getListingDescription() . " by $this->author";
+  }
+}
+```
+
+Use:
+
+```php
+<?php
+
+require '17-overriding.php';
+require '18-overriding.php';
+
+$book = new Book();
+$book->name = 'The 100';
+$book->author = 'Commander Laxa';
+
+echo $book->getListingDescription();
+
+```
+
 ---
 
 ## Control Access: Protected Visibility of Properties and Methods
+
+- [Visibility](https://www.php.net/manual/en/language.oop5.visibility.php)
+
+| Visibility | Availability                                        |
+| ---------- | --------------------------------------------------- |
+| public     | Anywhere: Inside other classes and object instances |
+| private    | Inside the current clss only                        |
+| protected  | Inside the current class and any subclasses         |
+
+Parent class:
+
+```php
+<?php
+
+class Item
+{
+  public $name;
+
+  protected $code = 1234;
+
+  public function getListingDescription() {
+    return "Item: $this->name";
+  }
+}
+```
+
+Child clss:
+
+```php
+<?php
+
+class Book extends Item
+{
+  public $author;
+
+  public function getListingDescription() {
+    return parent::getListingDescription() . " by $this->author";
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+}
+```
+
+Use:
+
+```php
+<?php
+
+require '20-Item.php';
+require '21-Book.php';
+
+$item = new Item();
+
+// echo $item->code; // Fatal error: Uncaught Error: Cannot access protected property Item::$code i
+
+$book = new Book();
+echo $book->getCode();
+```
