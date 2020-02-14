@@ -24,7 +24,7 @@ $articles = $results->fetchAll(PDO::FETCH_ASSOC);
 <?php if (isLoggedIn()): ?>
 
   <p>You are logged in. <a href="logout.php">Log out</a></p>
-  <a href="/15-Sessions/new-article.php">New article</a>
+  <a href="/PHP-for-Beginners/17-PDO/new-article.php">New article</a>
 
 <?php else: ?>
 

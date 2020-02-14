@@ -21,4 +21,4 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-redirect("/15-Sessions/");
+redirect("/PHP-for-Beginners/17-PDO/");

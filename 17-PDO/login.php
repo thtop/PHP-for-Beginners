@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
    $_SESSION['is_logged_in'] = true;
 
-   redirect("/15-Sessions/");
+   redirect("/PHP-for-Beginners/17-PDO/");
 
   } else {
 
