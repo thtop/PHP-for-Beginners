@@ -1,6 +1,7 @@
 <?php
 
 require 'classes/Database.php';
+require 'classes/Article.php';
 require 'includes/auth.php';
 
 session_start();
@@ -8,14 +9,7 @@ session_start();
 $db = new Database();
 $conn = $db->getConn();
 
-$sql = "SELECT *
-        FROM article
-        ORDER BY published_at;";
-
-$results = $conn->query($sql);
-
-$articles = $results->fetchAll(PDO::FETCH_ASSOC);
-
+$articles = Article::getAll($conn);
 
 ?>
 <?php require 'includes/header.php' ?>

@@ -24,6 +24,10 @@
 
 ## Prepared Statements with Named Parameters in PDO: view an Individual Article
 
+- [PDO::prepare](https://www.php.net/manual/en/pdo.prepare.php)
+- [PDOStatement::bindValue](https://www.php.net/manual/en/pdostatement.bindvalue.php)
+- [PDOStatement::fetch](https://www.php.net/manual/en/pdostatement.fetch.php)
+
 ---
 
 ## Create an Article Class and Use it on the Index and Article Pages
@@ -32,8 +36,9 @@
 
 ## Fetch the Database Record as an Object Instead of an Array
 
----
+- [PDOStatement::setFetchMode](https://www.php.net/manual/en/pdostatement.setfetchmode.php)
 
+---
 
 ## Update the Article Record Using PDO
 
@@ -49,3 +54,4 @@
 
 ## Insert a new Article Record Using POD and get the ID of the New Record
 
+- [PDO::lastInsertId](php.net/manual/en/pdo.lastinsertid.php)
