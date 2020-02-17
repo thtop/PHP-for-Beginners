@@ -1,16 +1,13 @@
 <?php
 
 require 'config/config.php';
-require 'classes/Database.php';
-require 'classes/Article.php';
+require 'includes/init.php';
 
-$db = new Database();
-$conn = $db->getConn();
+$conn = require 'includes/db.php';
 
-if (isset($_GET['id'])) { 
+if (isset($_GET['id'])) {
 
- $article = Article::getByID($conn, $_GET['id']);
-
+  $article = Article::getByID($conn, $_GET['id']);
 } else {
   $article = null;
 }
@@ -18,24 +15,24 @@ if (isset($_GET['id'])) {
 
 <?php require 'includes/header.php' ?>
 
-    <?php if ($article) : ?>
-      
-      <article>
-        <h2><?= htmlspecialchars($article->title); ?></h2>
-        <p><?= htmlspecialchars($article->content); ?></p>
-      </article>
+<?php if ($article) : ?>
 
-      <a href="<?= $ROOT_PATH; ?>/edit-article.php?id=<?= $article->id; ?>">Edit</a>
+  <article>
+    <h2><?= htmlspecialchars($article->title); ?></h2>
+    <p><?= htmlspecialchars($article->content); ?></p>
+  </article>
 
-      <a href="<?= $ROOT_PATH; ?>/delete-article.php?id=<?= $article->id; ?>">Delete</a>
-      
-    <?php else: ?>
+  <a href="<?= $ROOT_PATH; ?>/edit-article.php?id=<?= $article->id; ?>">Edit</a>
 
-      <p>Article not found.</p>
+  <a href="<?= $ROOT_PATH; ?>/delete-article.php?id=<?= $article->id; ?>">Delete</a>
 
-    <?php endif; ?>
+<?php else : ?>
 
-      <hr />
-    <p><a href="<?= $ROOT_PATH; ?>">Back</a></p>
+  <p>Article not found.</p>
+
+<?php endif; ?>
+
+<hr />
+<p><a href="<?= $ROOT_PATH; ?>">Back</a></p>
 
 <?php require 'includes/footer.php' ?>

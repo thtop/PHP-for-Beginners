@@ -1,12 +1,9 @@
 <?php
 
 require 'config/config.php';
-require 'classes/Database.php';
-require 'classes/Article.php';
-require 'classes/Url.php';
+require 'includes/init.php';
 
-$db = new Database();
-$conn = $db->getConn();
+$conn = require 'includes/db.php';
 
 if (isset($_GET['id'])) {
 

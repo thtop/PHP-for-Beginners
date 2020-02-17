@@ -19,3 +19,5 @@
 ---
 
 ## Returning a Value Using Require: Add a Script to get the Database Connection
+
+- [include ](https://www.php.net/manual/en/function.include.php)

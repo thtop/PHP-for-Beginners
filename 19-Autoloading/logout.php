@@ -1,11 +1,7 @@
 <?php
 
 require 'config/config.php';
-require 'classes/Url.php';
-
-session_start();
-
-// $_SESSION['is_logged_in'] = false;
+require 'includes/init.php';
 
 // Unset all of the session variables.
 $_SESSION = array();
