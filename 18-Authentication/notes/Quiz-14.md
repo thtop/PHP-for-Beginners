@@ -10,7 +10,7 @@
 
 ---
 
-3. Which code is used to return an object of the User class in a prepared statement>
+3. Which code is used to return an object of the User class in a prepared statement?
    ✅ 
 
    ```php
