@@ -1,6 +1,5 @@
 <?php
 
-require 'config/config.php';
 require 'includes/init.php';
 
 $conn = require 'includes/db.php';
@@ -9,19 +8,6 @@ $articles = Article::getAll($conn);
 
 ?>
 <?php require 'includes/header.php' ?>
-
-<!-- CHECK LOGIN OR LOGOUT -->
-<?php if (Auth::isLoggedIn()) : ?>
-
-  <p>You are logged in. <a href="logout.php">Log out</a></p>
-  <a href="<?= $ROOT_PATH; ?>/new-article.php">New article</a>
-
-<?php else : ?>
-
-  <p>You are not logged in. <a href="login.php">Log in</a></p>
-
-<?php endif; ?>
-<!-- /CHECK LOGIN OR LOGOUT -->
 
 <?php if (empty($articles)) : ?>
   <p>No articles found.</p>
@@ -32,7 +18,6 @@ $articles = Article::getAll($conn);
         <article>
           <h2><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
           <p><?= htmlspecialchars($article['content']); ?></p>
-          <hr />
         </article>
       </li>
     <?php endforeach; ?>

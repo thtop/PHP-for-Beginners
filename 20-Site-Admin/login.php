@@ -1,8 +1,6 @@
 <?php
 
-require 'config/config.php';
 require 'includes/init.php';
-
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
@@ -12,10 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
     Auth::login();
 
-    Url::redirect('/');
+    Url::redirect('/admin/index.php');
+
   } else {
 
     $error = "login incorrect";
+
   }
 }
 
@@ -31,15 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 <form method="post">
   <div>
     <label for="username">Username</lable>
-      <input name="username" id="username">
-      <div>
+    <input name="username" id="username">
+  </div>
 
-        <div>
-          <label for="password">Password</lable>
-            <input type="password" name="password" id="password">
-            <div>
+  <div>
+    <label for="password">Password</lable>
+    <input type="password" name="password" id="password">
+  </div>
 
-              <button>Log in</button>
+  <button>Log in</button>
 </form>
 
 <?php require 'includes/footer.php'; ?>

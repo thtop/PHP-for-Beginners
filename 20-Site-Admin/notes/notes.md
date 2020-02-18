@@ -6,9 +6,14 @@
 
 ## Create an Admin Index and Load Classes Relative to the site root Directory
 
+- [Magic constants](https://www.php.net/manual/en/language.constants.predefined.php)
+- [dirname](https://www.php.net/manual/en/function.dirname.php)
+
 ---
 
 ## Displaying Tabular Data in HTML: Tables
+
+- [table](https://devdocs.io/html/element/table)
 
 ---
 

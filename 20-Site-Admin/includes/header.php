@@ -11,4 +11,22 @@
     <h1>My blog</h1>
   </header>
 
+  <nav>
+    <ul>
+      <!-- CHECK LOGIN OR LOGOUT -->
+      <li><a href="/">Home</a></li>
+      <?php if (Auth::isLoggedIn()) : ?>
+
+        <li><a href="/admin/">Admin</a></li>
+        <li><a href="/logout.php">Log out</a>
+
+      <?php else : ?>
+
+        <li><a href="/login.php">Log in</a>
+
+      <?php endif; ?>
+      <!-- /CHECK LOGIN OR LOGOUT -->
+    </ul>
+  </nav>
+
   <main>
