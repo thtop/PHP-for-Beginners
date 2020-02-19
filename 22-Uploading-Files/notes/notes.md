@@ -45,13 +45,25 @@
 
 ## Sanitise the Uploaded Filename as a Security Precaution
 
+- [pathinfo](https://www.php.net/manual/en/function.pathinfo.php)
+
 ---
 
 ## Don't Overwrite Existing Files in the Uploads Folder
 
+- [file_exists](https://www.php.net/manual/en/function.file-exists.php)
+- Finding an unused filename
+  - example.png
+  - example-1.png
+  - example-2.png
+  - example-3.png
+
 ---
 
 ## Save the Filename to the Article Record in the Database
+
+- [substr](https://www.php.net/substr)
+- [mb_substr](https://www.php.net/mb_substr)
 
 ---
 

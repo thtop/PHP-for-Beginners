@@ -64,6 +64,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       throw new Exception('Invalid file type');
     }
 
+    // Move the uploaded file
+    // $destination = "../uploads/" . $_FILES['file']['name'];
+    $pathinfo = pathinfo($_FILES["file"]["name"]);
+
+    $base = $pathinfo['filename'];
+
+    // Replace any characters that aren't letters, numbers, underscores or hyphens with an underscore
+    $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
+
+    $base = mb_substr($base, 0, 200);
+
+    $filename = $base . "." . $pathinfo['extension'];
+
+    $destination = "../uploads/$filename";
+
+    // Check the file exists
+    $i = 1;
+    while (file_exists($destination)) {
+      $filename = $base . "-$i." . $pathinfo['extension'];
+      $destination = "../uploads/$filename";
+
+      $i++;
+    }
+
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $destination)) {
+
+      // echo "File uploaded successfully.";
+
+      if($article->setImageFile($conn, $filename)) {
+
+        Url::redirect("/admin/article.php?id={$article->id}");
+
+      }
+
+    } else {
+
+      throw new Exception('Unable to move uploaded file');
+      
+    }
+
   } catch (Exception $e) {
     echo $e->getMessage();
   }
