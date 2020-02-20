@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  var_dump($_FILES);
+  // var_dump($_FILES);
 
   try {
 
@@ -92,7 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // echo "File uploaded successfully.";
 
+      $previous_image = $article->image_file;
+
       if($article->setImageFile($conn, $filename)) {
+
+        if ($previous_image) {
+          unlink("../uploads/$previous_image");
+        }
 
         Url::redirect("/admin/article.php?id={$article->id}");
 
@@ -105,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
   } catch (Exception $e) {
-    echo $e->getMessage();
+    $error = $e->getMessage();
   }
   
 }
@@ -114,6 +120,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require '../includes/header.php'; ?>
 
 <h2>Edit article image</h2>
+
+<?php if ($article->image_file) : ?>
+  <img src="/uploads/<?= $article->image_file; ?>">
+  <a href="delete-article-image.php?id=<?= $article->id; ?>">Delete</a>
+<?php endif; ?>
+
+<?php if (isset($error)) : ?>
+  <p><?= $error ?></p>
+<?php endif; ?>
 
 <form method="post" enctype="multipart/form-data">
   

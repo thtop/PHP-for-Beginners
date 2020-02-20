@@ -73,6 +73,8 @@
 
 ## Delete the Previous image File when an Artile Image is Updated
 
+- [unlink](https://www.php.net/manual/en/function.unlink.php)
+
 ---
 
 ## Add an Option to Delete an Article's Image file
