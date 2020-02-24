@@ -1,0 +1,12 @@
+/* p {
+    font-family: sans-serif;
+    font-size: 26px;
+    color: blue;
+} */
+
+
+p.example {
+    font-family: sans-serif;
+    font-size: 26px;
+    color: green;
+}
