@@ -1,11 +1,6 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/PHPMailer/src/Exception.php';
-require 'vendor/PHPMailer/src/PHPMailer.php';
-require 'vendor/PHPMailer/src/SMTP.php';
+require 'vendor/PHPMailer-master/PHPMailerAutoload.php';
 
 require 'includes/init.php';
 
@@ -35,23 +30,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($errors)) {
+
         $mail = new PHPMailer(true);
 
         try {
+
+            $mail->CharSet = "utf-8";
             $mail->isSMTP();
-            $mail->Host = SMTP_HOST;
-            $mail->SMTPAuth = true;
-            $mail->Username = SMTP_USER;
-            $mail->Password = SMTP_PASS;
-            $mail->SMTPSecure = 'tls';
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+            $mail->Host = 'smtp.gmail.com';
             $mail->Port = 587;
-
-
-            $mail->setFrom('contact@thamonwan.top');
-            $mail->addAddress('thamonwan.mtb@gmail.com');
-            // $email->addReplyTo($email);
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Username = "thamonwan.cc@gmail.com";
+            $mail->Password = "<Your-Password>";
+            $mail->setFrom('thamonwan.top@gmail.com','Thamonwan Maneechan');
+            $mail->addAddress("thamonwan.mtb@gmail.com");
             $mail->Subject = $subject;
-            $mail->Body = $message;
+            $mail->msgHTML($message);
 
             $mail->send();
 
